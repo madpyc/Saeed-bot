@@ -1,0 +1,23 @@
+name = "saeed-bot"
+main = "src/worker.js"
+compatibility_date = "2024-10-01"
+logpush = true
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "replace-with-your-kv-id"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "saeed-db"
+database_id = "replace-with-your-d1-id"
+
+[vars]
+BOT_NAME = "سعید"
+MAX_TAAROF = "3"
+ALLOW_OPENAI_SPEND = "false"
+OAI_VISION_MODE = "fallback"
+ALLOW_FLUX_NON_COMMERCIAL = "false"
