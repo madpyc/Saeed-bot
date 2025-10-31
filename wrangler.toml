@@ -1,23 +1,41 @@
 name = "saeed-bot"
-main = "src/worker.js"
-compatibility_date = "2024-10-01"
-logpush = true
+main = "src/index.ts"
+compatibility_date = "2025-10-31"
+node_compat = true
+
+# Bindings
+[[d1_databases]]
+binding = "DB"
+database_name = "saeed_db"
+database_id = "${D1_DATABASE_ID}"
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "${KV_NAMESPACE_ID}"
+
+[vars]
+R2_PUBLIC_BASE = ""  # اختیاری: اگر دامنه پابلیک برای R2 داری، اینجا بگذار
+BOT_NAME = "سعید"
+BOT_LOCALE = "fa-IR"
+TELEGRAM_BOT_USERNAME = "${TELEGRAM_BOT_USERNAME}"
+WEBAPP_URL = "${WEBAPP_URL}"
+PROVIDER_ORDER = "openai,workersai,huggingface"
+BATCH_WINDOW_MS = "120"
+OPENAI_VISION_MODEL = "gpt-5-vision" # prefer GPT-5 for images if available
+OPENAI_TEXT_MODEL = "gpt-5"          # prefer GPT-5 for text if available
 
 [ai]
 binding = "AI"
 
-[[kv_namespaces]]
-binding = "CHAT_KV"
-id = "replace-with-your-kv-id"
+[observability]
+enabled = true
 
-[[d1_databases]]
-binding = "DB"
-database_name = "saeed-db"
-database_id = "replace-with-your-d1-id"
+# [routes]
+# { pattern = "bot.yourdomain.com", custom_domain = true }
 
-[vars]
-BOT_NAME = "سعید"
-MAX_TAAROF = "3"
-ALLOW_OPENAI_SPEND = "false"
-OAI_VISION_MODE = "fallback"
-ALLOW_FLUX_NON_COMMERCIAL = "false"
+[env.production]
+vars = { }
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "saeed-bucket"
