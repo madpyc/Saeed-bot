@@ -1,4 +1,4 @@
-name = "saeed-bot"
+name = "saeed-botss"
 main = "src/index.ts"
 compatibility_date = "2025-10-31"
 node_compat = true
